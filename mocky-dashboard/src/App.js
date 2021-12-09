@@ -1,7 +1,7 @@
 
 import './App.css';
 import Header from './Header';
-import { BrowserRouter,Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import LogIn from './Login';
 import Register from './Register';
 import AddProduct from './AddProduct';
