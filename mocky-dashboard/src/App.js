@@ -1,34 +1,33 @@
 
 import './App.css';
-import Header from './Header';
 import { BrowserRouter, Route } from 'react-router-dom';
 import LogIn from './Login';
 import Register from './Register';
 import AddProduct from './AddProduct';
 import UpdateProduct from './UpdateProduct';
+import Protected from './Protected';
 
 
 function App() {
   return (
     <div className="App">
-    <BrowserRouter>
-    <Header/>
-    <h1>Welcome to the mocky-Ecommerce site</h1>
-      <Route path="/login">
-        <LogIn />
-      </Route>
-      <Route path="/register">
-        <Register />
-      </Route>
-      <Route path="/add">
-        <AddProduct />
-      </Route>
-      <Route path="/update">
-        <UpdateProduct />
-      </Route>
-    
-    </BrowserRouter>
-    
+      <BrowserRouter>
+        <Route path="/login">
+          <LogIn />
+        </Route>
+        <Route path="/register">
+          <Register />
+          <Protected Cmp={UpdateProduct} />
+        </Route>
+        <Route path="/add">
+          <Protected Cmp={AddProduct} />
+        </Route>
+        <Route path="/update">
+          <UpdateProduct />
+        </Route>
+
+      </BrowserRouter>
+
     </div>
   );
 }

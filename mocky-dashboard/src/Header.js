@@ -1,19 +1,28 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 function Header() {
     return (
         <div>
-        <Navbar bg="dark" variant="dark">
-        <Container>
-        <Navbar.Brand href="#home">Mocky-Comm</Navbar.Brand>
-        <Nav className="me-auto navbar_wrapper" >
-            <Link to="/add">Add Products</Link>
-            <Link to="/update">Update Products</Link>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
-        </Nav>
-        </Container>
-      </Navbar>
+            <Navbar bg="dark" variant="dark">
+                <Container>
+                    <Navbar.Brand href="#home">Mocky-Comm</Navbar.Brand>
+                    <Nav className="me-auto navbar_wrapper" >
+                        {
+                            localStorage.getItem('user-info') ?
+                                <>
+                                    <Link to="/add">Add Products</Link>
+                                    <Link to="/update">Update Products</Link>
+                                </>
+                                :
+                                <>
+                                    <Link to="/login">Login</Link>
+                                    <Link to="/register">Register</Link>
+                                </>
+                        }
+
+                    </Nav>
+                </Container>
+            </Navbar>
         </div>
     )
 }
