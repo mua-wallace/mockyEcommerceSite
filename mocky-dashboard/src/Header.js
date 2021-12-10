@@ -1,12 +1,19 @@
-import { Navbar, Nav, Container } from "react-bootstrap";
-import { Link } from 'react-router-dom';
+import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
+import { Link, useHistory } from 'react-router-dom';
 function Header() {
+    let user = JSON.parse(localStorage.getItem('user-info'));
+    const history =useHistory();
+    function logout() {
+        localStorage.clear();
+        history.push('/register');
+        
+    }
     return (
         <div>
             <Navbar bg="dark" variant="dark">
                 <Container>
                     <Navbar.Brand href="#home">Mocky-Comm</Navbar.Brand>
-                    <Nav className="me-auto navbar_wrapper" >
+                    <Nav className="me-auto navbar_wrapper">
                         {
                             localStorage.getItem('user-info') ?
                                 <>
@@ -21,6 +28,14 @@ function Header() {
                         }
 
                     </Nav>
+                    { localStorage.getItem('user-info')?
+                        <Nav>
+                        <NavDropdown title={user && user.name}>
+                            <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
+                        </NavDropdown>
+                    </Nav>
+                    : null
+                    }
                 </Container>
             </Navbar>
         </div>
