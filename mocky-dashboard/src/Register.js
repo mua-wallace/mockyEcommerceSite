@@ -12,11 +12,12 @@ function Register()
 
     const [name,setName] = useState("");
     const [email,setEmail] = useState("");
+    const [location,setLocation] = useState("");
     const [password,setPassword] = useState("");
    
 
    async function signup(){
-        let item = {name, email, password};
+        let item = {name, email, location, password};
 
       let result = await fetch("http://localhost:8000/api/register", {
             method:'POST',
@@ -40,6 +41,8 @@ function Register()
                 <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="form-control" placeholder="name"></input>
                 <br />
                 <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} className="form-control" placeholder="email"></input>
+                <br />
+                <input type="text" value={location} onChange={(e)=>setLocation(e.target.value)} className="form-control" placeholder="location"></input>
                 <br />
                 <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} className="form-control" placeholder="password"></input>
                 <br />

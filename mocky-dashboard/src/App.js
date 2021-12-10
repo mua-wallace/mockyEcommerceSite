@@ -13,7 +13,6 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Route path="/login">
-      <h1>Welcome to the Mocky-Ecommerce side</h1>
           <LogIn />
         </Route>
         <Route path="/register">
@@ -25,9 +24,7 @@ function App() {
         <Route path="/update">
         <Protected Cmp={UpdateProduct} />
         </Route>
-
       </BrowserRouter>
-
     </div>
   );
 }
