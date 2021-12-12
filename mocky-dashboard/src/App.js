@@ -5,7 +5,7 @@ import LogIn from './Login';
 import Register from './Register';
 import AddProduct from './AddProduct';
 import UpdateProduct from './UpdateProduct';
-import Protected from './Protected';
+import Protected from './Protected'; 
 
 
 function App() {
