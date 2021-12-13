@@ -4,7 +4,7 @@ function AddProduct() {
     return (
         <div>
         <Header />
-            <h1>Add prodduct Page</h1>
+        <input type="text" className="form-control"/>
         </div>
     )
 }
