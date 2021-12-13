@@ -10,19 +10,19 @@ function AddProduct() {
     const [delivery_date, setDelivery_date] = useState("");
     async function addProduct() {
         console.warn(name, category,image,description,price, quantity, delivery_date);
-        const FormData  = new FormData();
-     FormData.append('image', image);
-     FormData.append('name', name);
-     FormData.append('category', category);
-     FormData.append('description', description);
-     FormData.append('price', price);
-     FormData.append('quantity', quantity);
-     FormData.append('delivery_date', delivery_date);
+        const bodyFormData  = new FormData();
+     bodyFormData.append('image', image);
+     bodyFormData.append('name', name);
+     bodyFormData.append('category', category);
+     bodyFormData.append('description', description);
+     bodyFormData.append('price', price);
+     bodyFormData.append('quantity', quantity);
+     bodyFormData.append('delivery_date', delivery_date);
         let result = await fetch("http://localhost:8000/api/addProduct", {
             method: "POST", 
-            body FormData;
-            headers:{
-                
+            body: bodyFormData,
+            headers: {
+                "Content-Type":'multipart/form-data'
             }
         });
         console.warn(result);
