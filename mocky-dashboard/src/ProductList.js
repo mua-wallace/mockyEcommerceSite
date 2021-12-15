@@ -27,6 +27,8 @@ function ProductList() {
         <td>Price</td>
         <td>Delivery date</td>
         <td>Image</td>
+        <td>Operation</td>
+        
       </tr>
       {
           data.map((item) =>
@@ -39,6 +41,7 @@ function ProductList() {
         <td>{item.price}</td>
         <td>{item.delivery_date}</td>
         <td><img style={{width:100}} src={"http://localhost:8000/"+item.file_path} alt=""/></td>
+        <td><span className="delete">Delete</span></td>
       </tr>
           )
       }
