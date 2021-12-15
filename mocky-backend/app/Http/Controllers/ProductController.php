@@ -20,4 +20,11 @@ class ProductController extends Controller
         $product->save();
         return  $product; 
     }
+    function list() {
+        return Product::all();
+    }
+
+    function delete($id) {
+        return $id;
+    }
 }
