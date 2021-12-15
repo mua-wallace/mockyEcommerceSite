@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { API_URL } from './config/api';
 import Header from "./Header";
 
  function LogIn() {
@@ -13,7 +14,7 @@ import Header from "./Header";
     });
     async function login() {
         let item ={email, password};
-        let result = await fetch("http://localhost:8000/api/login", {
+        let result = await fetch(API_URL+"login", {
             method:'POST',
             body:JSON.stringify(item),
             headers:{

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
+import { API_URL } from './config/api';
 import Header from './Header';
 function Register()
  {
@@ -19,7 +20,7 @@ function Register()
    async function signup(){
         let item = {name, email, location, password};
 
-      let result = await fetch("http://localhost:8000/api/register", {
+      let result = await fetch(API_URL+"register", {
             method:'POST',
             body:JSON.stringify(item),
             headers:{
