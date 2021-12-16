@@ -7,7 +7,7 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-    //
+    // addProduct function
     function addProduct(Request $req) {
         $product =new Product;
         $product->name = $req->input('name');
@@ -20,10 +20,11 @@ class ProductController extends Controller
         $product->save();
         return  $product; 
     }
+    // list all products function
     function list() {
         return Product::all();
     }
-
+    // delete function
     function delete($id) {
         $result = Product::where('id', $id)->delete();
         if($result){
@@ -33,4 +34,10 @@ class ProductController extends Controller
             return ["result"=>"Ooooops!!! the operation failed or product no longer exist in Database"]; 
         }
     }
+    // getProduct function to get a single product 
+    function getProduct($id) {
+        return Product::find($id); 
+    }
+
+
 }
