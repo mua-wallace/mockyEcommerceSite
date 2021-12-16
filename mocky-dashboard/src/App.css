@@ -14,9 +14,9 @@
 }
 
 /* delete button */
- .delete {
-  background: rgb(255, 0, 98);
-  color: #fff;
+ Table tr td .delete {
+  background-color: rgb(255, 0, 98);
+  color: #fff; 
   padding: 3px;
   border-radius: 5px;
   cursor: pointer;
