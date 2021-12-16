@@ -5,13 +5,24 @@ import { API_URL } from "./config/api";
 function ProductList() {
   const [data, setData] = useState([]);
   useEffect(() => {
-    (async () => {
-      let result = await fetch(API_URL + "list");
+    getData();
+  }, []);
+  async function deleteOperation(id) {
+    let result = await fetch("http://localhost:8000/api/delete/"+id, {
+      method: 'DELETE'
+    });
+    result= await result.json();
+    console.log(result);
+    getData();
+  }
+
+ async function getData(){
+    let result = await fetch(API_URL + "list");
       result = await result.json();
       setData(result);
-    })();
-  }, []);
-  console.warn("result", data);
+  }
+
+
   return (
     <div>
       <Header />
@@ -41,7 +52,7 @@ function ProductList() {
         <td>{item.price}</td>
         <td>{item.delivery_date}</td>
         <td><img style={{width:100}} src={"http://localhost:8000/"+item.file_path} alt=""/></td>
-        <td><span className="delete">Delete</span></td>
+        <td><span onClick={()=>deleteOperation(item.id)} className="delete">Delete</span></td>
       </tr>
           )
       }
