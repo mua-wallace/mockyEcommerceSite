@@ -21,6 +21,14 @@
   border-radius: 5px;
   cursor: pointer;
 }
+/* delete button */
+ Table tr td .update {
+  background-color: green;
+  color: #fff; 
+  padding: 3px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 .navbar_wrapper a {
   padding-left: 30px;
