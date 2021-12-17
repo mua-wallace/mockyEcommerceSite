@@ -2,6 +2,7 @@ import Header from "./Header";
 import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { API_URL } from "./config/api";
+import {Link} from "react-router-dom";
 function ProductList() {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -49,10 +50,11 @@ function ProductList() {
         <td>{item.category}</td>
         <td>{item.description}</td>
         <td>{item.quantity}</td>
-        <td>{item.price}</td>
+        <td>{item.price}FCFA</td>
         <td>{item.delivery_date}</td>
         <td><img style={{width:100}} src={"http://localhost:8000/"+item.file_path} alt=""/></td>
         <td><span onClick={()=>deleteOperation(item.id)} className="delete">Delete</span></td>
+        <td> <Link to={"update/"+item.id}><span className="update">Update</span></Link></td>
       </tr>
           )
       }
