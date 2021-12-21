@@ -1,7 +1,7 @@
 import Header from "./Header";
 import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
-import { API_URL } from "./config/api";
+import { API_URL, API_URL_DEL } from "./config/api";
 import {Link} from "react-router-dom";
 function ProductList() {
   const [data, setData] = useState([]);
@@ -9,7 +9,7 @@ function ProductList() {
     getData();
   }, []);
   async function deleteOperation(id) {
-    let result = await fetch("http://localhost:8000/api/delete/"+id, {
+    let result = await fetch(API_URL_DEL+id, {
       method: 'DELETE'
     });
     result= await result.json();
@@ -22,8 +22,7 @@ function ProductList() {
       result = await result.json();
       setData(result);
   }
-
-
+  
   return (
     <div>
       <Header />

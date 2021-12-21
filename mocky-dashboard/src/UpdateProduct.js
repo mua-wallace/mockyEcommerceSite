@@ -2,18 +2,18 @@ import { withRouter } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import Header from "./Header";
+import { API_URL, API_URL_PRODUCT } from "./config/api";
 
 
 function UpdateProduct(props) {
     const [data, setData] = useState([]);
     useEffect(() => {
         (async () => {
-            let result = await fetch("http://localhost:8000/api/product/" + props.match.params.id);
-            result = await result.json()
+            let result = await fetch(API_URL_PRODUCT + props.match.params.id);
+            result = await result.json();
             setData(result);
         })()
     });
-
     return (
         <div>
             <Header />;
@@ -26,10 +26,9 @@ function UpdateProduct(props) {
                 <input type="text" defaultValue={data.price} /> <br /> <br />
                 <input type="text" defaultValue={data.delivery_date} /> <br /> <br />
                 <input type="file" defaultValue={data.file_path} /> <br /> <br />
-                <img style={{ width: 100 }} src={"http://localhost:8000/" + data.file_path} alt="" /> <br /> <br />
+                <img style={{ width: 100 }} src={API_URL + data.file_path} alt="" /> <br /> <br />
                 <button className="btn btn-success"> Update Product</button>
             </div>
-
         </div>
     )
 }
