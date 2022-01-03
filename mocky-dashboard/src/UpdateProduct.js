@@ -27,7 +27,7 @@ function UpdateProduct(props) {
                 <input type="text" defaultValue={data.delivery_date} /> <br /> <br />
                 <input type="file" defaultValue={data.file_path} /> <br /> <br />
                 <img style={{ width: 100 }} src={API_URL + data.file_path} alt="" /> <br /> <br />
-                <button className="btn btn-success"> Update Product</button>
+                <button  className="btn btn-success" > Update Product</button>
             </div>
         </div>
     )
