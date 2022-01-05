@@ -48,7 +48,7 @@ class ProductController extends Controller
         $product->quantity.$req->input('quantity');
         $product->delivery_date.$req->input('delivery_date');
         if($req->file('file')) {
-            $product->file_path=$req->file('file')->store('products');
+            $product->file_path = $req->file('file')->store('products');
         }
         $product->save();
         return $product;

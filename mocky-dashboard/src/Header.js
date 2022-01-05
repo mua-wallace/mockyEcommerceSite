@@ -17,7 +17,6 @@ function Header() {
               <>
                 <Link to="/">ProductList</Link>
                 <Link to="/add">Add Products</Link>
-                <Link to="/update">Update Products</Link>
                 <Link to="/search">Seach Products</Link>
               </>
             ) : (
